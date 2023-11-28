@@ -23,5 +23,21 @@ def enterDataPage(site1, site2):
     return render_template('enterData_Page.html')
 
 
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/next')
+def next_page():
+    return render_template('next_page.html')
+
+
 if __name__ == "__main__":
     app.run( debug=True )
+
+
+
+
+
+
