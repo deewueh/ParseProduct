@@ -24,13 +24,20 @@ def enterDataPage(site1, site2):
 
 
 @app.route('/')
-@app.route('/home')
 def home():
-    return render_template('home.html')
+    return '''
+    <!doctype html>
+    <title>My App</title>
+    <h1>Welcome to my app!</h1>
+    '''
 
 @app.route('/next')
-def next_page():
-    return render_template('next_page.html')
+def next():
+    return '''
+    <!doctype html>
+    <title>Next Page</title>
+    <h1>This is the next page.</h1>
+    '''
 
 
 if __name__ == "__main__":
