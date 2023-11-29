@@ -13,13 +13,13 @@ def aboutPage():
     return render_template('about.html')
 
 
-@app.route('/viewDataPage')
-def viewDataPage(site1, site2):
+@app.route('/viewData')
+def viewDataPage():
     return render_template('viewData_Page.html')
 
 
-@app.route('/enterDataPage')
-def enterDataPage(site1, site2):
+@app.route('/enterData')
+def enterDataPage():
     return render_template('enterData_Page.html')
 
 
