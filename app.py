@@ -23,8 +23,6 @@ def enterDataPage():
     return render_template('enterData_Page.html')
 
 
-
-
 if __name__ == "__main__":
     app.run( debug=True )
 
