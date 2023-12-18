@@ -1,19 +1,14 @@
 import bs4
 import requests
+import xlsxwriter
 
 main_url = ''
-
 url_5ka = 'https://5ka.ru/special_offers'
-
 url_remi = 'https://remi.ru/news/'
-
 url_samberi = 'https://www.samberi.com/actions'
-
 headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 OPR/104.0.0.0'}
 
 excel_data = [['Наименование', 'Цена', 'Ссылка', 'Картинка']]
-
-
 
 def get_soup(url):
     res = requests.get(url, headers)
