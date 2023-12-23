@@ -24,27 +24,64 @@
         }
     </style>
 </head>
+
 <h1>
     Выберите сайт из списка, который нужно отпарсить
 </h1>
+
 <h2>
     Реми: https://remi.ru/news/ <td>
     <button type="button" onclick="window.location.href=''"
     >Отпарсить</button> </td>
 </h2>
+
 <h2>
-    Пятёрочка: https://5ka.ru/special_offers <td><button type="button" onclick="window.location.href=''"
-    >Отпарсить</button> </td>
+    Пятёрочка: https://5ka.ru/special_offers
+    <td>
+    <form action="get_soup_5ka" method="get"
+          onclick="get_soup_5ka()">
+        <button type="button"
+                onget_soup_5kaclick="window.location.href=''">
+                Отпарсить
+        </button>
+    </form>
+
+    </td>
 </h2>
+
 <h2>
-    Самбери: https://www.samberi.com/actions/ <td><button type="button" onclick="window.location.href=''"
-    >Отпарсить</button> </td>
+    Самбери: https://www.samberi.com/actions/
+    <td>
+        <button type="button">
+        Отпарсить
+        </button>
+    </td>
 </h2>
+
 <td>
+
+<td>
+    <h2>
+        Сбермаркет Ашан: https://sbermarket.ru/auchan/c/priedlozhieniia
+    </h2>
+    <button type="submit"
+            onclick="callMethod()">Submit
+    </button>
+    <script>
+        function callMethod() {
+            fetch('/call_method')
+                .then(response => response.text())
+                .then(result => alert(result))
+                .catch(error => console.error('Ошибка:', error));
+        }
+    </script>
+<td>
+
 <td>
     <button type="button" onclick="window.location.href='/main'"
     >Назад</button>
 </td>
+
 <body>
 
 </body>
