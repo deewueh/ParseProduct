@@ -1,10 +1,8 @@
 import bs4
 import requests
-
 import openpyxl
-from openpyxl import load_workbook
 
-from flask import Flask, render_template
+from openpyxl import load_workbook
 
 main_url = ''
 url_5ka = 'https://5ka.ru/special_offers'
@@ -16,16 +14,19 @@ headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit
 
 excel_data = [['Наименование', 'Цена', 'Дата', 'Картинка']]
 excel_data_5ka = [['Наименование', 'Цена', 'Дата', 'Картинка']]
-excel_data_SberAshan = [['Наименование', 'Цена', 'Дата']]
+excel_data_SberAshan = [['Наименование', 'Цена', 'Дата Окончания']]
 
 def get_soup_SberAshan():
-    res = requests.get(url_sberashan, headers)
-    return bs4.BeautifulSoup(res.text, 'html.parser')
+    result = requests.get(url_sberashan, headers)
+    return bs4.BeautifulSoup(result.text, 'html.parser')
+    #ashan_data()
 
+def ashan_data():
     promotions = url_sberashan.findAll('li', class_='Carousel_slide_qXWRh')
     for promotion in promotions:
-        itemname = promotion.find('h3', class_='ProductCard_title__iNsaD').find(text = True).strip()
-        itemprice = promotion.find('div', class_='ProductCardPrice_price__Kv7Q7 ProductCardPrice_accent__GwwRX').find(text = True).strip()
+        itemname = promotion.find('h3', class_='ProductCard_title__iNsaD').find(text=True).strip()
+        itemprice = promotion.find('div', class_='ProductCardPrice_price__Kv7Q7 ProductCardPrice_accent__GwwRX').find(
+            text=True).strip()
         itemdateend = promotion.find('span')['PromoBadge_info__GWtw9'].strip()
         excel_data.append([itemname, itemprice, itemdateend])
 

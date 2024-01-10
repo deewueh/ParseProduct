@@ -1,13 +1,14 @@
 from flask import Flask, render_template
+
 from main import get_soup_5ka
 from main import get_soup_SberAshan
 from main import test_excel
 
-app = Flask(__name__)
 my_instance = test_excel()
 ashan_instance = get_soup_SberAshan()
 vka_instance = get_soup_5ka()
 
+app = Flask(__name__)
 @app.route('/')
 @app.route('/main')
 def mainPage():
