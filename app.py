@@ -27,10 +27,14 @@ def viewDataPage():
 def enterDataPage():
     return render_template('enterData_Page.html')
 
+<<<<<<< Updated upstream
 @app.route('/call_method')
 def call_method():
     result = my_instance.test_excel()
     return result
+=======
+
+>>>>>>> Stashed changes
 
 if __name__ == "__main__":
     app.run( debug=True )
