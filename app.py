@@ -1,12 +1,14 @@
 from flask import Flask, render_template
-##from main import get_soup_5ka
+
 from main import get_soup_5ka
+from main import get_soup_SberAshan
 from main import test_excel
 
+my_instance = test_excel()
+ashan_instance = get_soup_SberAshan()
+vka_instance = get_soup_5ka()
 
 app = Flask(__name__)
-my_instance = test_excel()
-
 @app.route('/')
 @app.route('/main')
 def mainPage():
@@ -35,6 +37,18 @@ def call_method():
 =======
 
 >>>>>>> Stashed changes
+
+
+@app.route('/call_ashan')
+def call_method():
+    result = ashan_instance.get_soup_SberAshan()
+    return result
+
+
+@app.route('/call_method_5ka')
+def call_method():
+    result = my_instance.get_soup_5ka()
+    return result
 
 if __name__ == "__main__":
     app.run( debug=True )
